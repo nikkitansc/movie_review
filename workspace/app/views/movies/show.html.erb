@@ -1,0 +1,23 @@
+<h2><%= @movie.title %></h2>
+<h3><%= @movie.director %></h3>
+<h4>Category: <%= @movie.category.name %></h4>
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@movie.picture_url, width: 600) if @movie.picture.present? %>
+</p>
+<p><%= @movie.description %></p>
+<h4><%= @movie.release %></h4>
+
+<%= link_to "Home", root_path %>
+
+<% if user_signed_in? %>
+
+    <% if @movie.user_id == current_user.id %>
+
+        <%= link_to "Edit", edit_movie_path(@movie) %>
+        <%= link_to "Delete", movie_path(@movie), method: :delete, data: { confirm: "Are you sure?" } %>
+
+    <% end %>
+
+<% end %>
+

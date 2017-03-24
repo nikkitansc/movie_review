@@ -1,0 +1,22 @@
+<h1 class="current_category"><%= params[:category] %></h1>
+
+<% if @movies.count == 0 %>
+<h1>There are currently no movies under this category.</h1>
+<% else %>
+    <% @movies.each do |movie| %>
+    <div class="col-lg-3 pt-3">
+        <div class="row">
+          <div class="col-lg-12">
+            <p><b><%= movie.title %></b></p>
+          </div>
+          <div class="col-lg-12">
+            <%= link_to movie do %>
+              <%= image_tag movie.picture, class: "img-responsive" %>
+            <% end %>
+          </div>
+        </div>
+    </div>
+
+    <% end %>
+<% end %>
+
