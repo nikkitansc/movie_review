@@ -1,7 +1,7 @@
-<%= simple_form_for([@movie, @movie.review.build]) do |f| %>
+<%= simple_form_for ([@movie, @movie.reviews.build]) do |f| %>
 
-<%= f.input :rating %>
-<%= f.input :comment %>
-<%= f.button :submit %>
+    <%= f.input :rating %>
+    <%= f.input :comment %>
+    <%= f.submit %>
 
 <% end %>
